@@ -6,9 +6,9 @@
 	<artifactId>testautothon</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<!-- <properties> <testng.File>./TestNG/com.prism.datastore.overriden.xml</testng.File> 
-		<testng.File>./TestNG/ProductProfile.xml</testng.File> <testng.File>./TestNG/MessageLockTileCheck.xml</testng.File> 
-		</properties> -->
+	 <properties> <testng.File>testng.xml</testng.File> 
+	<!--	<testng.File>./TestNG/ProductProfile.xml</testng.File> <testng.File>./TestNG/MessageLockTileCheck.xml</testng.File> -->
+		</properties> 
 
 	<dependencies>
 		<dependency>
