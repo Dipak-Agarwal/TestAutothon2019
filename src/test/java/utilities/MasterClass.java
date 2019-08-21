@@ -1,8 +1,6 @@
 package utilities;
 
-import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.basic;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +15,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 import io.restassured.path.json.JsonPath;
@@ -50,10 +47,10 @@ public class MasterClass {
 
 	 @BeforeTest
 	public WebDriver setUp() throws Exception {
-		baseURI = readProp.getPropertyValue("StagingAPI");
-		basic(username, password);
-//		driver = BrowserInitiation.browserLoad(url, ieDriver, ieDriverServer, chromeDriver, chromeDriverServer, username, password, browser);
-		driver = BrowserInitiation.zeleniumBrowsers(baseURI, browser);
+//		baseURI = readProp.getPropertyValue("StagingAPI");
+//		basic(username, password);
+		driver = BrowserInitiation.browserLoad(url, ieDriver, ieDriverServer, chromeDriver, chromeDriverServer, username, password, browser);
+//		driver = BrowserInitiation.zeleniumBrowsers(baseURI, browser);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 //		return BrowserInitiation.browserLoad(url, ieDriver, ieDriverServer, chromeDriver, chromeDriverServer, username, password, browser);
@@ -295,6 +292,19 @@ public class MasterClass {
 		}
 		// sleep(1000);
 	}
+	
+	public void keyboardPressPageDown(String successMsg, String failureMsg) throws Exception {
+		try {
+			Thread.sleep(2000);
+			new Actions(driver).sendKeys(Keys.PAGE_DOWN).build().perform();
+			System.out.println(successMsg);
+		} catch (Exception e) {
+			System.out.println(failureMsg);
+			System.out.println(e.getMessage());
+			throw e;
+		}
+		// sleep(1000);
+	}
 
 	public void sendKeysToTextBox(String xpath, String textToBeSend, int timeOut, String successMsg, String failureMsg)
 			throws Exception {
@@ -459,6 +469,28 @@ public class MasterClass {
 
 	}
 	
+	public static String CaptureScreenshot(WebDriver driver) {
+
+        String pathOfScreenShot = null;
+        try {
+               
+               File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+               time = getCurrentDateTime();
+
+               pathOfScreenShot = System.getProperty("user.dir") + "\\Screenshot\\Screenshot" + time + ".png";
+
+               FileUtils.copyFile(scrFile, new File(pathOfScreenShot));
+
+        } catch (Exception e) {
+
+               System.out.println("Screenshot Failed "+e.getMessage());
+        }
+
+        return pathOfScreenShot;
+  }
+
+	
 	public String getText(By element, int timeOut) throws Exception {
 		String text = null;
 		try {
@@ -578,6 +610,77 @@ public class MasterClass {
 	public static void verifyXmlDataContains(String responseXmlData, String key, String expectedValue) {
 		String actualValue = getXmlPathObject(responseXmlData).get(key);
 		Assert.assertTrue(actualValue.contains(expectedValue));
+	}
+	
+	public void scrollDown() {
+		((JavascriptExecutor)driver).executeScript("scroll(0,200)");
+	}
+	
+	public void scrollDownUntilFound(By element, int timeOut, String successMsg, String failureMsg) throws InterruptedException {
+		int counter = 0;
+		int x = 0;
+		while (x <= 0 && counter < timeOut) {
+			try {
+				System.out.println("Displayed : "+driver.findElement(element).isDisplayed());
+				x = driver.findElement(element).getLocation().getX();
+				if (x > 0) {
+					System.out.println("WebElement Found");
+					break;
+				}
+				else
+				{
+					scrollDown();
+				}
+			} catch (Exception e) {
+				Thread.sleep(1000);
+				counter++;
+				System.out.println("Searching for WebElement");
+			}
+
+		}
+	}
+	
+	public List<String> getTitleOFUpNext(By element)
+	{
+		List<WebElement> elements = driver.findElements(element);
+		List<String> upNext = new ArrayList<String>();
+		for(WebElement ele : elements)
+		{
+			upNext.add(ele.getAttribute("title"));
+		}
+		return upNext;
+	}
+	
+	public void scrollDownUntilFound(String element, String toBeFound, int timeOut, String successMsg, String failureMsg) throws Exception {
+		
+		boolean found = false;
+		
+		while(!found)
+		{
+		List<WebElement> elements = driver.findElements(By.xpath(element));
+		System.out.println(elements.size());
+		for(WebElement element1 : elements)
+		{
+			String text = element1.getText();
+			System.out.println(text);
+			if(text.equals(toBeFound))
+			{
+				found = true;
+				String xpathForVideo = "//div[@id='items'][contains(@class,'grid-renderer')]//a[text()='DevOps Tool Chain']";
+				WebElement elementFound = driver.findElements(By.xpath(xpathForVideo)).get(0);
+				 ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",elementFound);
+				clickOnElement(xpathForVideo, timeOut, "Clicked", "Could not click");
+				break;
+			}
+		}
+		
+		if(!found)
+		{
+//			scrollDown();
+			keyboardPressPageDown(successMsg, failureMsg);
+		}
+		
+		}
 	}
 
 }

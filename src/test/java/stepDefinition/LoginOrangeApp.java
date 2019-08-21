@@ -22,7 +22,7 @@ public class LoginOrangeApp extends MasterClass{
 	HashMap<String, String> dataMap;
 	ArrayList<HashMap<String, String>> arrayListData;
 	
-	@Given("^a list of usernames and passwords$")
+	@Given("^a list of usernames and passwords hello$")
 	public void a_list_of_usernames_and_passwords() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		System.out.println(Thread.currentThread().getId() + " "+Thread.currentThread().getName());
@@ -33,7 +33,7 @@ public class LoginOrangeApp extends MasterClass{
 //		setUp();
 	}
 
-	@When("^user tries to login to Orange App with given creds$")
+	@When("^user tries to login to Orange App with given creds hello$")
 	public void user_tries_to_login_to_Orange_App_with_given_creds() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		for (int i = 0; i < arrayListData.size(); i++) {
@@ -43,7 +43,7 @@ public class LoginOrangeApp extends MasterClass{
 		}
 	}
 
-	@Then("^the user should be login$")
+	@Then("^the user should be login hello$")
 	public void the_user_should_be_login() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		System.out.println("Login Functionality validated successfully");

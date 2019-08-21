@@ -21,7 +21,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
                 "rerun:target/cucumber-reports/rerun.txt"
         },*/
 //        dryRun = true,
-        tags= {"@LoginToOrangeApp"},
+        tags= {"@PerformActions"},
         plugin = {
         		"html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json"

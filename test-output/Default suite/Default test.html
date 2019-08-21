@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Aug 20 17:35:41 IST 2019</td>
+<td>Started on:</td><td>Wed Aug 21 12:15:07 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>18 seconds (18286 ms)</td>
+<tr><td>Total time:</td><td>49 seconds (49100 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,7 +75,7 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='cucumberRunner.CucumberRunnerTestNG.feature()'><b>feature</b><br>Test class: cucumberRunner.CucumberRunnerTestNG<br>Test method: Runs Cucumber Feature<br>Parameters: Wikipedia vs IMDB</td>
+<td title='cucumberRunner.CucumberRunnerTestNG.feature()'><b>feature</b><br>Test class: cucumberRunner.CucumberRunnerTestNG<br>Test method: Runs Cucumber Feature<br>Parameters: Perform operations on youtube</td>
 <td><div><pre>cucumber.runtime.CucumberException: java.lang.NullPointerException
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumberRunner.CucumberRunnerTestNG.feature(CucumberRunnerTestNG.java:41)
@@ -105,12 +105,12 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 Caused by: java.lang.NullPointerException
-	at utilities.MasterClass.sendKeysToTextBox(MasterClass.java:241)
-	at pageFunctions.GoogleSearchFunctions.EnterSearchTextWikipedia(GoogleSearchFunctions.java:21)
-	at stepDefinition.ValidateDirectorNames.user_tries_to_extract_the_director_names_on_wikipedia_and_imdb(ValidateDirectorNames.java:39)
-	at ?.When user tries to extract the director names on wikipedia and imdb(ValidationActions.feature:7)
-</pre></div><a href='#' onClick='toggleBox("stack-trace115086468", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace115086468'><pre>cucumber.runtime.CucumberException: java.lang.NullPointerException
+	at utilities.MasterClass.scrollDownUntilFound(MasterClass.java:636)
+	at pageFunctions.YoutubeHomePageFunctions.locateVideo(YoutubeHomePageFunctions.java:44)
+	at stepDefinition.YoutubeTestAutothon.locate_the_video_fetched_in_the_video_call_in_the_videos_list_of_channel(YoutubeTestAutothon.java:60)
+	at ?.And Locate the video fetched in the video call in the videos list of channel(YoutubeActions.feature:11)
+</pre></div><a href='#' onClick='toggleBox("stack-trace181613131", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace181613131'><pre>cucumber.runtime.CucumberException: java.lang.NullPointerException
 	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
 	at cucumberRunner.CucumberRunnerTestNG.feature(CucumberRunnerTestNG.java:41)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -139,12 +139,12 @@ Caused by: java.lang.NullPointerException
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 Caused by: java.lang.NullPointerException
-	at utilities.MasterClass.sendKeysToTextBox(MasterClass.java:241)
-	at pageFunctions.GoogleSearchFunctions.EnterSearchTextWikipedia(GoogleSearchFunctions.java:21)
-	at stepDefinition.ValidateDirectorNames.user_tries_to_extract_the_director_names_on_wikipedia_and_imdb(ValidateDirectorNames.java:39)
-	at ?.When user tries to extract the director names on wikipedia and imdb(ValidationActions.feature:7)
+	at utilities.MasterClass.scrollDownUntilFound(MasterClass.java:636)
+	at pageFunctions.YoutubeHomePageFunctions.locateVideo(YoutubeHomePageFunctions.java:44)
+	at stepDefinition.YoutubeTestAutothon.locate_the_video_fetched_in_the_video_call_in_the_videos_list_of_channel(YoutubeTestAutothon.java:60)
+	at ?.And Locate the video fetched in the video call in the videos list of channel(YoutubeActions.feature:11)
 </pre></div></td>
-<td>17</td>
+<td>48</td>
 <td>cucumberRunner.CucumberRunnerTestNG@52a86356</td></tr>
 </table><p>
 </body>
