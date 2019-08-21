@@ -23,6 +23,7 @@ public class SendMail {
 			Properties props = System.getProperties();
 
 			props.put("mail.smtp.host", smtpHostServer);
+			props.put("mail.smtp.port", "587");
 
 			Session session = Session.getInstance(props, null);
 
@@ -83,5 +84,11 @@ public class SendMail {
         } catch (MessagingException e) {throw new RuntimeException(e);}    
            
   }  
+	
+	public static void main(String[] args)
+	{
+//		sendEmailForServicesWithDownStatus("Test Mail", "Mail Triggered");
+		send("dipak123456@gmail.com", "September#2013", "mukesh.otwani50@gmail.com", "Test Mail", "Mail Triggered");
+	}
 }  
 

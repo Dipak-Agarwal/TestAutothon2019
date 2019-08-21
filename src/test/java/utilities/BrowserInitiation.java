@@ -32,7 +32,7 @@ public class BrowserInitiation {
 	}
 	
 	
-	public static WebDriver zeleniumBrowsers(WebDriver driver, String url,String browser) throws Exception
+	public static WebDriver zeleniumBrowsers(String url,String browser) throws Exception
 	{
 		
 		
@@ -43,18 +43,17 @@ public class BrowserInitiation {
 			DesiredCapabilities cap=new DesiredCapabilities();
 			cap.setBrowserName(BrowserType.FIREFOX);
 			
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+			return new RemoteWebDriver(new URL("http://localhost:4445/wd/hub"), cap);
 			
 		} else if (browser.equalsIgnoreCase("Chrome")) {
 			DesiredCapabilities cap=new DesiredCapabilities();
 			cap.setBrowserName(BrowserType.CHROME);
 			
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+			return new RemoteWebDriver(new URL("http://localhost:4445/wd/hub"), cap);
 
 		} 
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		return driver;
+		return null;
+//		return driver;
 	}
 	
 	public static WebDriver browserLoad(String url, String ieDriver, String ieDriverServer, String chromeDriver, String chromeDriverServer, String username, String password, String browser) throws Exception

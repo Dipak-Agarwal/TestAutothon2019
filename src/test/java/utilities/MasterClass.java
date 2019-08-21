@@ -52,8 +52,10 @@ public class MasterClass {
 	public WebDriver setUp() throws Exception {
 		baseURI = readProp.getPropertyValue("StagingAPI");
 		basic(username, password);
-		driver = BrowserInitiation.browserLoad(url, ieDriver, ieDriverServer, chromeDriver, chromeDriverServer, username, password, browser);
-//		driver = BrowserInitiation.zeleniumBrowsers(baseURI, browser);
+//		driver = BrowserInitiation.browserLoad(url, ieDriver, ieDriverServer, chromeDriver, chromeDriverServer, username, password, browser);
+		driver = BrowserInitiation.zeleniumBrowsers(baseURI, browser);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 //		return BrowserInitiation.browserLoad(url, ieDriver, ieDriverServer, chromeDriver, chromeDriverServer, username, password, browser);
 		return driver;
 	}

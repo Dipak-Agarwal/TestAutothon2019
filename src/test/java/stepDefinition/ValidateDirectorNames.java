@@ -12,7 +12,6 @@ import junit.framework.Assert;
 import pageFunctions.GoogleSearchFunctions;
 import pageFunctions.ImdbPageFunctions;
 import pageFunctions.WikipediaPageFunctions;
-import utilities.BaseClass;
 import utilities.MasterClass;
 import utilities.ReadCSV;
 

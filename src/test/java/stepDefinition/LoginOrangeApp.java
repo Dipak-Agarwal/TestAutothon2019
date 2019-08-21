@@ -10,7 +10,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageFunctions.ImdbPageFunctions;
 import pageFunctions.OrangeAppLoginPageFunctions;
-import utilities.BaseClass;
 import utilities.MasterClass;
 import utilities.ReadCSV;
 
