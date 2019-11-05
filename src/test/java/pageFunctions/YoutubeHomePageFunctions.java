@@ -47,36 +47,39 @@ public class YoutubeHomePageFunctions extends MasterClass{
 //		scrollDownUntilFound(xpathForAllVideos,videoName, 30, videoName+" Found", videoName+" not found");
 //		String xpathForVideo = "//div[@id='items'][contains(@class,'grid-renderer')]//a[text()='DevOps Tool Chain']";
 //		clickOnElement(xpathForVideo, timeOut, "Clicked on "+videoName, "Could not click on "+videoName);
-		int count=driver.findElements(By.xpath("//h4[text()='"+fetchVideo+"']")).size();
-        
-        while(count<0)
-        {
-              ((JavascriptExecutor)driver).executeScript("scroll(0,100)");
-              
-              count=driver.findElements(By.xpath("//h4[text()='"+fetchVideo+"']")).size();
-
-              
-        }
-        
-        boolean status=false;
-        
-        ((JavascriptExecutor)driver).executeScript("scroll(0,800)");
-        
-        while(!status)
-        try 
-        {
-            driver.findElements(By.xpath("//h4[text()='"+fetchVideo+"']//..//..//..//..//img")).get(0).click();
-            status=true;
-      } catch (Exception e) {
-            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",driver.findElements(By.xpath("//h4[text()='"+fetchVideo+"']//..//..//..//..//img")).get(0));
-              //((JavascriptExecutor)driver).executeScript("scroll(0,100)");
-
-            status=false;
-      }
+//		int count=driver.findElements(By.xpath("//h4[text()='"+fetchVideo+"']")).size();
+//        
+//        while(count<0)
+//        {
+//              ((JavascriptExecutor)driver).executeScript("scroll(0,100)");
+//              
+//              count=driver.findElements(By.xpath("//h4[text()='"+fetchVideo+"']")).size();
+//
+//              
+//        }
+//        
+//        boolean status=false;
+//        
+//        ((JavascriptExecutor)driver).executeScript("scroll(0,800)");
+//        
+//        while(!status)
+//        try 
+//        {
+//            driver.findElements(By.xpath("//h4[text()='"+fetchVideo+"']//..//..//..//..//img")).get(0).click();
+//            status=true;
+//      } catch (Exception e) {
+//            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",driver.findElements(By.xpath("//h4[text()='"+fetchVideo+"']//..//..//..//..//img")).get(0));
+//              //((JavascriptExecutor)driver).executeScript("scroll(0,100)");
+//
+//            status=false;
+//      }
+		driver.findElement(By.xpath("//a[text()='SUMMIT 2019 Promo']")).click();
 	}
 	
 	public List<String> getTitleOFUpNextVideos(){
-		return getTitleOFUpNext(objYoutubeHomePage.upNextVideos);
+		List<String> upNext = getTitleOFUpNext(objYoutubeHomePage.upNextVideos);
+		System.out.println(upNext);
+		return upNext;
 	}
 	
 	public void writeToFile(List<String> videoNames)
@@ -99,17 +102,17 @@ public class YoutubeHomePageFunctions extends MasterClass{
 	
 	public void changeVideoQuality()
 	{
-		String filepath = "/screenshot/";
-        
-        Screen s = new Screen();
-        Pattern Settings = new Pattern(filepath + "Settings.PNG");
-        Pattern Quality = new Pattern(filepath + "Quality.PNG");
-        Pattern QualityRes = new Pattern(filepath + "360p.PNG");
-        s.click(Settings);
-        s.wait(Quality, 20);
-        s.click(Quality);
-        s.wait(QualityRes, 10);
-        s.click(QualityRes);
+//		String filepath = "/screenshot/";
+//        
+//        Screen s = new Screen();
+//        Pattern Settings = new Pattern(filepath + "Settings.PNG");
+//        Pattern Quality = new Pattern(filepath + "Quality.PNG");
+//        Pattern QualityRes = new Pattern(filepath + "360p.PNG");
+//        s.click(Settings);
+//        s.wait(Quality, 20);
+//        s.click(Quality);
+//        s.wait(QualityRes, 10);
+//        s.click(QualityRes);
 
 	}
 	

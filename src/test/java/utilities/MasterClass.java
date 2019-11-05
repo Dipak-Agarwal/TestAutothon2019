@@ -24,15 +24,24 @@ public class MasterClass {
 
 	public WebDriver driver;
 
-	 ReadProperties readProp = new ReadProperties();
-	 String url = readProp.getPropertyValue("URL");
-	 String ieDriver = readProp.getPropertyValue("IEDriver");
-	 String ieDriverServer = readProp.getPropertyValue("IEDriverServer");
-	 String chromeDriver = readProp.getPropertyValue("ChromeDriver");
-	 String chromeDriverServer = readProp.getPropertyValue("ChromeDriverServer");
-	 String username = readProp.getPropertyValue("Username");
-	 String password = readProp.getPropertyValue("Password");
-	 String browser = readProp.getPropertyValue("Browser");
+//	 ReadProperties readProp = new ReadProperties();
+//	 String url = readProp.getPropertyValue("URL");
+//	 String ieDriver = readProp.getPropertyValue("IEDriver");
+//	 String ieDriverServer = readProp.getPropertyValue("IEDriverServer");
+//	 String chromeDriver = readProp.getPropertyValue("ChromeDriver");
+//	 String chromeDriverServer = readProp.getPropertyValue("ChromeDriverServer");
+//	 String username = readProp.getPropertyValue("Username");
+//	 String password = readProp.getPropertyValue("Password");
+//	 String browser = readProp.getPropertyValue("Browser");
+	 
+	 String url = "https://www.youtube.com";
+	 String ieDriver = "webdriver.ie.driver";
+	 String ieDriverServer = "./Drivers/IEDriverServer.exe";
+	 String chromeDriver = "webdriver.chrome.driver";
+	 String chromeDriverServer = "./Drivers/chromedriver.exe";
+	 String username = "admin";
+	 String password = "admin";
+	 String browser = "Chrome";
 	// protected String csvFileLocation = readProp.getPropertyValue("CSVFile");
 	// String csvFileLocation = null;
 
@@ -469,7 +478,7 @@ public class MasterClass {
 
 	}
 	
-	public static String CaptureScreenshot(WebDriver driver) {
+	/*public static String CaptureScreenshot(WebDriver driver) {
 
         String pathOfScreenShot = null;
         try {
@@ -488,7 +497,7 @@ public class MasterClass {
         }
 
         return pathOfScreenShot;
-  }
+  }*/
 
 	
 	public String getText(By element, int timeOut) throws Exception {

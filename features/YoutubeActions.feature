@@ -9,9 +9,9 @@ Feature: Perform operations on youtube
     And Navigate to "Videos" tab
     And Make an API call "http://54.169.34.162:5252/video" and fetch video name
     And Locate the video fetched in the video call in the videos list of channel
-    And Capture screenshot of video located
+#    And Capture screenshot of video located
 #    And Click on the video
-    And Change the video quality to "360p"
+#    And Change the video quality to "360p"
     And Get the list of all upcoming videos in Up Next section
     And Write the list to a JSON file
     And Upload the list to the server "http://54.169.34.162:5252/upload"

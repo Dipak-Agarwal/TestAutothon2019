@@ -7,7 +7,7 @@
     </classes>
   </test>
   
-   <test name="Test2">
+   <!-- <test name="Test2">
     <classes>
       <class name="cucumberRunner.CucumberRunnerTestNG"/>
     </classes>
@@ -17,7 +17,7 @@
     <classes>
       <class name="cucumberRunner.CucumberRunnerTestNG"/>
     </classes>
-  </test>
+  </test> -->
   
    <!-- Test -->
 </suite> <!-- Suite -->

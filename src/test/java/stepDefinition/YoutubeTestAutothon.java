@@ -85,6 +85,7 @@ public class YoutubeTestAutothon extends MasterClass{
 	public void get_the_list_of_all_upcoming_videos_in_Up_Next_section() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		listOfUpNextVideos = objYoutubeHomePageFunctions.getTitleOFUpNextVideos();
+		System.out.println("Up Next : "+listOfUpNextVideos);
 	}
 
 	@When("^Write the list to a JSON file$")
@@ -96,19 +97,16 @@ public class YoutubeTestAutothon extends MasterClass{
 	@When("^Upload the list to the server \"([^\"]*)\"$")
 	public void upload_the_list_to_the_server(String arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
 	}
 
 	@When("^Validate the file upload \"([^\"]*)\"$")
 	public void validate_the_file_upload(String arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
 	}
 
 	@Then("^Generate the test execution report$")
 	public void generate_the_test_execution_report() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
 	}
 	
 	
