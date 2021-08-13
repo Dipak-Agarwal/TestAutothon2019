@@ -11,8 +11,10 @@ public class ReadProperties {
 		try
 		{	
 			FileInputStream fis = new FileInputStream("./TestData/data.properties");
+			FileInputStream fis1 = new FileInputStream("./TestData/ScenarioToCSVMapping.properties");
 			Properties prop = new Properties();
 			prop.load(fis);
+			prop.load(fis1);
 			value = prop.getProperty(key);
 		}
 		catch(Exception e)
